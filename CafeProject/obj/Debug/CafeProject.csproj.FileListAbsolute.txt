@@ -1,1 +1,2 @@
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\bin\Debug\CafeProject.exe.config
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\bin\Debug\CafeProject.exe.config
