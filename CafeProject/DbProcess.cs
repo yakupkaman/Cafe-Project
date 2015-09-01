@@ -37,17 +37,16 @@ namespace CafeProject
         /// </summary>
         public SqlConnection dbConnect()
         {
-            string connectionInfo = "DataSource=.;Initial Catalog=" + dbName + "Integrated Security=true";
+            string connectionInfo = "Data Source=.;Initial Catalog=" + dbName + ";Integrated Security=true";
             try
             {
-                using (con = new SqlConnection(connectionInfo))
-                {
+                con = new SqlConnection(connectionInfo);
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
                     }
 
-                }
+                
             }
             catch (Exception ex)
             {
