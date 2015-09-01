@@ -66,7 +66,7 @@ namespace CafeProject
 
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionInfo))
+                using (con = new SqlConnection(connectionInfo))
                 {
                     if (con.State == ConnectionState.Closed)
                     {
@@ -105,7 +105,7 @@ namespace CafeProject
         /// </summary>
         /// <param name="query">veritabanından değer okumak için yollanması gereken sorgu</param>
         /// <returns></returns>
-        public SqlDataAdapter getData(string query)
+        public SqlDataAdapter getData1(string query)
         {
             SqlCommand com = new SqlCommand(query, con);
             dt = new DataTable();
@@ -130,7 +130,7 @@ namespace CafeProject
         /// </summary>
         /// <param name="procName">prosedür adı</param>
         /// <returns></returns>
-        public SqlDataAdapter procExecRead(string procName)
+        public SqlDataAdapter procExecRead1(string procName)
         {
             dt = new DataTable();
             SqlCommand com = new SqlCommand(procName, con);
@@ -156,8 +156,7 @@ namespace CafeProject
             }
             return sb.ToString(); 
         }
- 
-    }
+
 
     }
 }
