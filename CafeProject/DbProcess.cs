@@ -12,7 +12,7 @@ namespace CafeProject
 {
     public class DbProcess
     {
-        private string dbName = "NORTHWND";
+        private string dbName = "CafeProject";
         SqlConnection con;
         SqlDataAdapter da;
         SqlDataReader dr;

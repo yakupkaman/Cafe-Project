@@ -57,6 +57,12 @@
     <Compile Include="frmAdminPaneli.Designer.cs">
       <DependentUpon>frmAdminPaneli.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAsci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAsci.Designer.cs">
+      <DependentUpon>frmAsci.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminPaneli.resx">
       <DependentUpon>frmAdminPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAsci.resx">
+      <DependentUpon>frmAsci.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiris.resx">
       <DependentUpon>frmGiris.cs</DependentUpon>
