@@ -36,6 +36,13 @@ namespace CafeProject
             
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form2 frm = new Form2();
+            this.Hide();
+            frm.Show();
+        }
+
         }
 
 
