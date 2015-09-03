@@ -21,6 +21,13 @@ namespace CafeProject
         {
             InitializeComponent();
         }
+        int asciId = -1;
+        public frmAsci(int asciId) 
+        {
+            InitializeComponent();
+            this.asciId = asciId;
+        
+        }
 
         private void frmAsci_Load(object sender, EventArgs e)
         {
@@ -38,7 +45,7 @@ namespace CafeProject
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form2 frm = new Form2();
+            frmAsciAyarlar frm = new frmAsciAyarlar();
             this.Hide();
             frm.Show();
         }

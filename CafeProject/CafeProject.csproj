@@ -45,11 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbProcess.cs" />
-    <Compile Include="Form2.cs">
+    <Compile Include="frmAsciAyarlar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="frmAsciAyarlar.Designer.cs">
+      <DependentUpon>frmAsciAyarlar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
@@ -91,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAsci.resx">
       <DependentUpon>frmAsci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAsciAyarlar.resx">
+      <DependentUpon>frmAsciAyarlar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiris.resx">
       <DependentUpon>frmGiris.cs</DependentUpon>

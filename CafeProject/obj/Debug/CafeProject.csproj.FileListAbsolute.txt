@@ -18,3 +18,4 @@ C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\ob
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.Properties.Resources.resources
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.csproj.GenerateResource.Cache
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmAsci.resources
+C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmAsciAyarlar.resources
