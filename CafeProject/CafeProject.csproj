@@ -69,11 +69,23 @@
     <Compile Include="frmAsci.Designer.cs">
       <DependentUpon>frmAsci.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAyarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAyarlar.Designer.cs">
+      <DependentUpon>frmAyarlar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGiris.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGiris.Designer.cs">
       <DependentUpon>frmGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMasaAtama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMasaAtama.Designer.cs">
+      <DependentUpon>frmMasaAtama.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMusteri.cs">
       <SubType>Form</SubType>
@@ -95,8 +107,14 @@
     <EmbeddedResource Include="frmAsciAyarlar.resx">
       <DependentUpon>frmAsciAyarlar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAyarlar.resx">
+      <DependentUpon>frmAyarlar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGiris.resx">
       <DependentUpon>frmGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMasaAtama.resx">
+      <DependentUpon>frmMasaAtama.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

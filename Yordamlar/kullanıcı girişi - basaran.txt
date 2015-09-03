@@ -8,3 +8,36 @@ begin
 select * from kullanicilar where @kulAdi=kulAdi and @sifre=sifre
 
 end 
+----------------------------------------------------------------
+alter PROCEDURE masaAtama(
+@id int,
+@masaNo varchar(50)
+
+)
+as 
+begin
+
+update masalar set adi=@masaNo
+update masalar set profilID=@id
+end 
+----------------------------------------------------------------
+alter PROCEDURE sifreDegistirme(
+@sifre int,
+@kulAdi varchar(50)
+
+)
+as 
+begin
+
+update kullanicilar set sifre=@sifre 
+update kullanicilar set kulAdi=@kulAdi
+
+end
+-----------------------------------------------------------------
+alter PROCEDURE logoDegistirme(
+@logoUrl nvarchar(1000)
+)
+as 
+begin
+update sirket set logo=@logoUrl
+end 

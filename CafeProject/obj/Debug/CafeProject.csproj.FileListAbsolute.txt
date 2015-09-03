@@ -19,3 +19,10 @@ C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\ob
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.csproj.GenerateResource.Cache
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmAsci.resources
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmAsciAyarlar.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAdmin.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAdminPaneli.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAsci.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAsciAyarlar.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAyarlar.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmLogin.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmMasaAtama.resources
