@@ -17,12 +17,11 @@ C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\ob
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmLogin.resources
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.Properties.Resources.resources
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.csproj.GenerateResource.Cache
-C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmAsci.resources
-C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmAsciAyarlar.resources
-C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAdmin.resources
-C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAdminPaneli.resources
-C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAsci.resources
-C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAsciAyarlar.resources
-C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAyarlar.resources
-C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmLogin.resources
-C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmMasaAtama.resources
+C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmProfil.resources
+G:\CafeProject\CafeProject\bin\Debug\CafeProject.exe.config
+G:\CafeProject\CafeProject\obj\Debug\CafeProject.exe
+G:\CafeProject\CafeProject\obj\Debug\CafeProject.pdb
+E:\CafeProject\CafeProject\bin\Debug\CafeProject.exe.config
+E:\CafeProject\CafeProject\obj\Debug\CafeProject.exe
+E:\CafeProject\CafeProject\obj\Debug\CafeProject.pdb
+C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.frmProfilGüncelleme.resources

@@ -45,12 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbProcess.cs" />
-    <Compile Include="frmAsciAyarlar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAsciAyarlar.Designer.cs">
-      <DependentUpon>frmAsciAyarlar.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,35 +57,29 @@
     <Compile Include="frmAdminPaneli.Designer.cs">
       <DependentUpon>frmAdminPaneli.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAsci.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAsci.Designer.cs">
-      <DependentUpon>frmAsci.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAyarlar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAyarlar.Designer.cs">
-      <DependentUpon>frmAyarlar.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGiris.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGiris.Designer.cs">
       <DependentUpon>frmGiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMasaAtama.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMasaAtama.Designer.cs">
-      <DependentUpon>frmMasaAtama.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMusteri.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMusteri.Designer.cs">
       <DependentUpon>frmMusteri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProfil.Designer.cs">
+      <DependentUpon>frmProfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProfilGüncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProfilGüncelleme.Designer.cs">
+      <DependentUpon>frmProfilGüncelleme.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,20 +89,14 @@
     <EmbeddedResource Include="frmAdminPaneli.resx">
       <DependentUpon>frmAdminPaneli.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAsci.resx">
-      <DependentUpon>frmAsci.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAsciAyarlar.resx">
-      <DependentUpon>frmAsciAyarlar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAyarlar.resx">
-      <DependentUpon>frmAyarlar.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmGiris.resx">
       <DependentUpon>frmGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMasaAtama.resx">
-      <DependentUpon>frmMasaAtama.cs</DependentUpon>
+    <EmbeddedResource Include="frmProfil.resx">
+      <DependentUpon>frmProfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProfilGüncelleme.resx">
+      <DependentUpon>frmProfilGüncelleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
