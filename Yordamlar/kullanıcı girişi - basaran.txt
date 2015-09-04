@@ -5,10 +5,9 @@ create procedure kulGiris (
 as 
 begin
 
-select * from kullanicilar where @kulAdi=kulAdi and @sifre=sifre
+select * from kullanicilar where kulAdi=@kulAdi and sifre=@sifre and seviye=0
 
-end 
-----------------------------------------------------------------
+end ----------------------------------------------------------------
 alter PROCEDURE masaAtama(
 @id int,
 @masaNo varchar(50)
