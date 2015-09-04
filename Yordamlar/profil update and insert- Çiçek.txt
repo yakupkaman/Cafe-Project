@@ -1,0 +1,36 @@
+ALTER procedure [dbo].[profilInsert]
+(
+ @adi           varchar(255),    
+ @soyadi        varchar(255),
+ @telefon       varchar(100),
+ @mail          varchar(255),
+ @adres         varchar(500),
+ @tcno          varchar(11),
+ @notlar        varchar(500)
+ )
+as
+
+begin
+
+insert into profil values(null, @adi, @soyadi, @telefon, @mail, @adres, @tcno, @notlar, GETDATE())
+
+end
+
+
+
+
+ALTER procedure [dbo].[profilUpdate] 
+(
+@id int,
+@adi  VarChar (255),
+@soyadi VarChar (255),
+@telefon VarChar (100),
+@mail VarChar (255),
+@adres VarChar (500),
+@tcno VarChar (11),
+@notlar VarChar (500)
+)
+as
+begin
+update profil set adi=@adi, soyadi=@soyadi, telefon=@telefon, mail=@mail, adres=@adres, tcno=@tcno, notlar=@notlar where id=@id
+end
