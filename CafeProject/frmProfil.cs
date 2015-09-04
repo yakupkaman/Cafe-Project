@@ -28,13 +28,13 @@ namespace CafeProject
             SqlCommand com = new SqlCommand("profilInsert", db.dbConnect());
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.Add("@adi", SqlDbType.VarChar, 255).Value = adi;
-            com.Parameters.Add("@soyadi", SqlDbType.VarChar, 255).Value = soyadi;           
-            com.Parameters.Add("@telefon",SqlDbType.VarChar, 255).Value= telefon;
-            com.Parameters.Add("@mail",SqlDbType.VarChar, 255).Value=mail;
-            com.Parameters.Add("@adres",SqlDbType.VarChar, 500).Value= adres;
+            com.Parameters.Add("@soyadi", SqlDbType.VarChar, 255).Value = soyadi;
+            com.Parameters.Add("@telefon", SqlDbType.VarChar, 255).Value = telefon;
+            com.Parameters.Add("@mail", SqlDbType.VarChar, 255).Value = mail;
+            com.Parameters.Add("@adres", SqlDbType.VarChar, 500).Value = adres;
             com.Parameters.Add("tcno", SqlDbType.VarChar, 11).Value = tcno;
-            com.Parameters.Add("notlar", SqlDbType.VarChar, 500).Value= notlar;
-           db.dbConnect();
+            com.Parameters.Add("notlar", SqlDbType.VarChar, 500).Value = notlar;
+            db.dbConnect();
             com.ExecuteNonQuery();
             db.dbClose();
             MessageBox.Show("Profil Kaydı Yapıldı");
@@ -50,11 +50,11 @@ namespace CafeProject
         ArrayList li = new ArrayList();
         public void idTut()
         {
-            SqlCommand com = new SqlCommand("select * from profil",db.dbConnect());
+            SqlCommand com = new SqlCommand("select * from profil", db.dbConnect());
             db.dbConnect();
             SqlDataReader dr = com.ExecuteReader();
             while (dr.Read())
-            { 
+            {
                 li.Add(Convert.ToInt32(dr["id"]));
                 comboBox1.Items.Add(dr["adi"].ToString());
             }
@@ -64,7 +64,7 @@ namespace CafeProject
         private void button3_Click(object sender, EventArgs e)
         {
             id = Convert.ToInt32(li[comboBox1.SelectedIndex]);
-            frmProfilGüncelleme profilGuncelleme = new frmProfilGüncelleme(id);
+            frmProfilGuncelleme profilGuncelleme = new frmProfilGuncelleme(id);
             profilGuncelleme.Show();
             this.Hide();
         }
@@ -73,6 +73,6 @@ namespace CafeProject
         {
             idTut();
         }
-    
+
     }
 }
