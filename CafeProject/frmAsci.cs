@@ -30,7 +30,7 @@ namespace CafeProject
 
         private void frmAsci_Load(object sender, EventArgs e)
         {
-            SqlCommand cm = new SqlCommand("asd", db.dbConnect());
+            SqlCommand cm = new SqlCommand("urunGetir", db.dbConnect());
             cm.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cm);
             DataTable dt = new DataTable();
