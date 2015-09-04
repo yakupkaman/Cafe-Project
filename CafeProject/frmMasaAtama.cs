@@ -79,6 +79,11 @@ namespace CafeProject
         {
 
 
+         
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             if (comboBox2.Text == "")
             {
                 MessageBox.Show("Lütfen Çalışan Seçiniz !!!");

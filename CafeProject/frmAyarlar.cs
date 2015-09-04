@@ -80,6 +80,40 @@ namespace CafeProject
             }
             db.dbClose();
         }
+        private void checkboxUpdate() {
+            if (checkBox1.Checked == true)
+            {
+                db.dbConnect();
+                SqlDataReader reader = db.getData("update sirket set sirketAdi='" + textBox4.Text.ToString() + "' where sirketAdi='"+label5.Text.ToString()+"'");
+                db.dbClose();
+            }
+
+            else if (checkBox2.Checked == true)
+            {
+                db.dbConnect();
+                SqlDataReader reader = db.getData("update sirket set telefon='" + textBox4.Text.ToString() + "' where sirketAdi='" + label5.Text.ToString() + "'");
+                db.dbClose();
+            }
+
+            else if (checkBox3.Checked == true)
+            {
+                db.dbConnect();
+                SqlDataReader reader = db.getData("update sirket set fax='" + textBox4.Text.ToString() + "' where sirketAdi='" + label5.Text.ToString() + "'");
+                db.dbClose();
+            }
+
+            else if (checkBox4.Checked == true)
+            {
+                db.dbConnect();
+                SqlDataReader reader = db.getData("update sirket set aciklama='" + textBox4.Text.ToString() + "' where sirketAdi='" + label5.Text.ToString() + "'");
+                db.dbClose();
+            }
+
+            else
+            {
+                MessageBox.Show("Lütfen Değiştirmek İstediğiniz Alanı İşaretleyin");
+            }
+        }
         public frmAyarlar()
         {
             InitializeComponent();
@@ -94,6 +128,77 @@ namespace CafeProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox2.Enabled = false;
+            checkBox3.Enabled = false;
+            checkBox4.Enabled = false;
+
+            if (checkBox1.Checked == false) {
+                checkBox2.Enabled = true;
+                checkBox3.Enabled = true;
+                checkBox4.Enabled = true;
+            }
+
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox1.Enabled = false;
+            checkBox3.Enabled = false;
+            checkBox4.Enabled = false;
+
+            if (checkBox2.Checked == false)
+            {
+                checkBox1.Enabled = true;
+                checkBox3.Enabled = true;
+                checkBox4.Enabled = true;
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox2.Enabled = false;
+            checkBox1.Enabled = false;
+            checkBox4.Enabled = false;
+            if (checkBox3.Checked == false)
+            {
+                checkBox2.Enabled = true;
+                checkBox1.Enabled = true;
+                checkBox4.Enabled = true;
+            }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox2.Enabled = false;
+            checkBox3.Enabled = false;
+            checkBox1.Enabled = false;
+            if (checkBox4.Checked == false)
+            {
+                checkBox2.Enabled = true;
+                checkBox3.Enabled = true;
+                checkBox1.Enabled = true;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            checkboxUpdate();
+            sirketBilgileriGetir();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             if (textBox1.Text == textBox2.Text)
             {
                 sifreDegistir();
@@ -104,7 +209,7 @@ namespace CafeProject
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             if (textBox3.Text == "")
             {
