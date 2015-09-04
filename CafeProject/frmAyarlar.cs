@@ -124,6 +124,9 @@ namespace CafeProject
             kullaniciGetir();
             logoGetir();
             sirketBilgileriGetir();
+
+            // combobox1'in properties'den DropDownStyle özelliğini 'DropDownList' yaptım
+            // böylece combobox içine veri yazılamayacak.
         }
 
         private void button1_Click(object sender, EventArgs e)
