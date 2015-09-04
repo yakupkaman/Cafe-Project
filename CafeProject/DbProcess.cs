@@ -14,7 +14,7 @@ namespace CafeProject
     {
         private string dbName = "CafeProject";
         SqlConnection con;
-        SqlDataAdapter da;
+        SqlDataAdapter da=null;
         SqlDataReader dr;
         DataTable dt;
         /// <summary>
