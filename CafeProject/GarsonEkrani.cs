@@ -35,34 +35,26 @@ namespace CafeProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SqlCommand cm = new SqlCommand("SP_Odemetur", db.baglan());
-            bool odemeTuru=true;
-            cm.CommandType = CommandType.StoredProcedure;
-            cm.Parameters.Add("@odemeturu",SqlDbType.Bit).Value=odemeTuru;
-            cm.ExecuteNonQuery();
-            SqlDataAdapter da = new SqlDataAdapter();
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            
+     
 
-            //SqlDataReader rd = db.DataGetir("select odemeturu from siparis ");
-            //rd.Read();
-            //String odemeturu = rd["odemeturu"].ToString();
 
-            //if (odemeturu == "False")
-            //{
+            SqlDataReader rd = db.DataGetir("select odemeturu from siparis ");
+            rd.Read();
+            String odemeturu = rd["odemeturu"].ToString();
 
-            //    MessageBox.Show("kredi kartı");
+            if (odemeturu == "False")
+            {
 
-            //}
-            //else
-            //{
+                MessageBox.Show("kredi kartı");
 
-            //    MessageBox.Show("nakit");
-            //}
+            }
+            else
+            {
 
-        db.DbKapat();
+                MessageBox.Show("nakit");
+            }
+
+            db.DbKapat();
 
         }
     }
