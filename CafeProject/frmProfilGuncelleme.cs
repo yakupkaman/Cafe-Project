@@ -72,6 +72,9 @@ namespace CafeProject
         private void button1_Click(object sender, EventArgs e)
         {
             profilUpdate(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox6.Text);
+            frmProfil fp = new frmProfil();
+            fp.Show();
+            this.Hide();
         }
 
     }

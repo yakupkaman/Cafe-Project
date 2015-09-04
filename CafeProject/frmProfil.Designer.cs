@@ -142,9 +142,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.Location = new System.Drawing.Point(42, 341);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 17);
+            this.label9.Size = new System.Drawing.Size(114, 17);
             this.label9.TabIndex = 28;
-            this.label9.Text = "Garson Listesi";
+            this.label9.Text = "Çalışanlar Listesi";
             // 
             // label8
             // 
@@ -274,5 +274,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+
     }
 }

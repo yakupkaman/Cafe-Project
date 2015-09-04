@@ -43,3 +43,5 @@ C:\Users\wissen\Documents\Visual Studio 2012\Projects\Cafe-Project\CafeProject\o
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\Cafe-Project\CafeProject\obj\Debug\CafeProject.csproj.GenerateResource.Cache
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmProfil.resources
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmProfilGuncelleme.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmProfil.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmProfilGuncelleme.resources
