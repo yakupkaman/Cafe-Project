@@ -16,7 +16,7 @@ namespace CafeProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmKategori());
+            Application.Run(new frmUrunler());
         }
     }
 }
