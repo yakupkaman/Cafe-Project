@@ -84,22 +84,3 @@ C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\obj\Debug\Cafe
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\obj\Debug\CafeProject.frmProfilGuncelleme.resources
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\obj\Debug\CafeProject.Properties.Resources.resources
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\obj\Debug\CafeProject.csproj.GenerateResource.Cache
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\bin\Debug\CafeProject.exe.config
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.exe
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.pdb
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\bin\Debug\CafeProject.exe
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\bin\Debug\CafeProject.pdb
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.csprojResolveAssemblyReference.cache
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAdmin.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAdminPaneli.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAsci.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAsciAyarlar.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmAyarlar.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmLogin.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmKategori.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmMasaAtama.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmProfil.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmProfilGuncelleme.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmUrunler.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.Properties.Resources.resources
-C:\Users\SAMSUNG\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.csproj.GenerateResource.Cache

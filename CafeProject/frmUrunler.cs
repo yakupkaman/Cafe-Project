@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 using System.Data.SqlClient;
 using System.Collections;
-using System.Text.RegularExpressions;
 namespace CafeProject
 {
     public partial class frmUrunler : Form
@@ -39,28 +38,41 @@ namespace CafeProject
         }
 
         ArrayList urunList = new ArrayList();
-        ArrayList urunList2 = new ArrayList();
-        ArrayList silList = new ArrayList();
         ArrayList kategoriIdList = new ArrayList();
+  
         public void urunDoldur()
         {
+
             urunlerListB.Items.Clear();
-            urunList2.Clear();
-            urunList.Clear();
+
             SqlCommand cm1 = new SqlCommand("yiyecekG", db.dbConnect());
             cm1.CommandType = CommandType.StoredProcedure;
             cm1.Parameters.Add("@catID", SqlDbType.Int).Value = kategoriIdList[ktcomb1.SelectedIndex];
+
             db.dbConnect();
+
             SqlDataReader rd1 = cm1.ExecuteReader();
 
             while (rd1.Read())
             {
+
+
                 urunList.Add(Convert.ToInt32(rd1["id"]));
-                urunList2.Add(rd1["adi"].ToString());
-                urunlerListB.Items.Add(rd1["adi"].ToString());
+                urunlerListB.Items.Add(rd1["adi"]);
+
             }
+
+
+
+
             db.dbClose();
         }
+
+
+
+
+
+
         private void frmYiyecek_Load(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand("select *from kategoriler", db.dbConnect());
@@ -69,6 +81,8 @@ namespace CafeProject
             while (readd.Read())
             {
                 ktcomb1.Items.Add(readd["adi"].ToString());
+
+
             }
             db.dbClose();
 
@@ -76,11 +90,14 @@ namespace CafeProject
             duzenle.Enabled = false;
             urun3.Enabled = false;
         }
+
         private void ktcomb1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           urunDoldur();
+
+            urunDoldur();
             if (urunList.Count > 0)
             {
+
                 sil.Enabled = true;
                 duzenle.Enabled = true;
             }
@@ -88,63 +105,33 @@ namespace CafeProject
             {
                 sil.Enabled = false;
                 duzenle.Enabled = false;
-            }         
+            }
+
+
         }
 
-        private void urunEkle(String urunE)
-        {
-            bool durum = false;
-            foreach (String item in urunList2)
-            {
-                String item1 = item.Trim();
-                if (item1.Contains(urunE.ToLower()))
-                {
-                    MessageBox.Show("Bu  ürün daha  önce eklendi");
-                    durum = false;
-                    break;
-                }
-                else
-                {
-                    durum =true;
-                }
-            }
-                if (durum)
-                {
-                    urunlerListB.Items.Add(urun);
-                    String urunAdi = urun.Text;
-                    SqlCommand cmm = new SqlCommand("yiyecekGE", db.dbConnect());
-                    cmm.CommandType = CommandType.StoredProcedure;
-                    cmm.Parameters.Add("@catID", SqlDbType.Int).Value = kategoriIdList[ktcomb1.SelectedIndex];
-                    cmm.Parameters.Add("@adi", SqlDbType.VarChar, 255).Value = urunAdi;
-                    db.dbConnect();
-                    cmm.ExecuteNonQuery();
-                    db.dbClose();
-                }
-             }
 
         private void ekle_Click_1(object sender, EventArgs e)
         {
-            String urunAdi = urun.Text;
             if (ktcomb1.SelectedIndex == -1)
             {
                 MessageBox.Show("Lütfen kategori seçiniz!");
             }
             else
             {
-                if (urun.Text == "" || urun.Text.Trim() == "")
+                if (urun.Text == "")
                 {
                     MessageBox.Show("Lütfen eklemek istediğiniz ürün adını giriniz");
                 }
-                else if (!Regex.IsMatch(urunAdi, @"^[ABCDEFGĞHIİJKLMNOÖPRSŞTUÜVYZabcdefghıijklmnoöprsştuüvyz ]+$"))
-                {
-                    MessageBox.Show("Lütfen sadece harf giriniz!");
-                    urun.Text = "";
-                }
                 else
                 {
-                    urunEkle(urun.Text);
-                    urunList2.Clear();
-                    urunList.Clear();
+
+                    String urunAdi = urun.Text;
+
+                    String ekleSorgu = "insert into urunler(kategoriID,adi) values(@catId,'" + urunAdi + "')";
+                    SqlCommand cm = new SqlCommand(ekleSorgu, db.dbConnect());
+                    cm.Parameters.AddWithValue("@catId", kategoriIdList[ktcomb1.SelectedIndex]);
+                    cm.ExecuteNonQuery();
                     urunDoldur();
                     urun.Text = "";
 
@@ -173,20 +160,25 @@ namespace CafeProject
                 db.dbConnect();
                 com.ExecuteNonQuery();
                 db.dbClose();
+
+
                 urunDoldur();
                 urun2.Text = "";
                 urun3.Text = "";
+
             }
+
         }
         private void urunlerListB_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             urun2.Text = urunlerListB.SelectedItem.ToString();
             urun3.Text = urunlerListB.SelectedItem.ToString();
+
             sil.Enabled = true;
             duzenle.Enabled = true;
-            silList.Add(urunList[urunlerListB.SelectedIndex]);
+
         }
+      
         private void sil_Click(object sender, EventArgs e)
         {
             if (urunlerListB.SelectedItems.Count == 0)
@@ -199,21 +191,16 @@ namespace CafeProject
                 }
             }
             else
-            {        
+            {
                 urun3.Text = urunlerListB.SelectedItem.ToString();
+                SqlCommand com = new SqlCommand("yiyecekGS", db.dbConnect());
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.Add("@urunID", SqlDbType.Int).Value = urunList[urunlerListB.SelectedIndex];
 
-                foreach (var item in silList)
-                {
-                    SqlCommand com = new SqlCommand("yiyecekGS", db.dbConnect());
-                    com.CommandType = CommandType.StoredProcedure;
-                    com.Parameters.Add("@urunID", SqlDbType.Int).Value = Convert.ToInt32(item);
-                    db.dbConnect();
-                    com.ExecuteNonQuery();
-                }
-
+                db.dbConnect();
+                com.ExecuteNonQuery();
                 db.dbClose();
                 urunDoldur();
-                silList.Clear();
                 urun3.Text = "";
                 urun2.Text = "";
             }
