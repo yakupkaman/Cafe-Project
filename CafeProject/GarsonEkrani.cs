@@ -99,17 +99,6 @@ namespace CafeProject
         {
 
 
-            //    ToolTip Aciklama = new ToolTip();
-            //    var cell = dataGridView1.CurrentCell;
-            //    var cellDisplayRect = dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-            //    Aciklama.ToolTipTitle = "Dikkat!";
-            //    Aciklama.ToolTipIcon = ToolTipIcon.Warning;
-            //    Aciklama.IsBalloon = true;
-
-            //    dataGridView1.ShowCellToolTips = false;
-
-
-
             String refKodu = Convert.ToString(dataGridView1.CurrentRow.Cells["refKodu"].Value);
             if (refKodu!="")
             {
@@ -129,7 +118,26 @@ namespace CafeProject
                 cm.CommandType = CommandType.StoredProcedure;
                 cm.Parameters.Add("@refKodu", SqlDbType.Int).Value = refKodu;
                 cm.ExecuteNonQuery();
-                SqlDataReader rd = cm.ExecuteReader();                
+                SqlDataReader rd = cm.ExecuteReader();
+
+                if (rd.Read())
+                { 
+                    String odeme = rd["odemeTur"].ToString();
+                   if (odeme.Equals(""))
+                              {
+                label2.Visible = true;
+                label2.Text = "KREDÝ KARTI";
+                
+                             }
+                    else
+                         {
+                label2.Visible = true;
+                label2.Text = "NAKÝT";
+                          }
+
+            db.DbKapat();
+            }
+                
                 
               }
         
