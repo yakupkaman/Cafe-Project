@@ -25,7 +25,7 @@ namespace CafeProject
         {
          int asciId = -1;
 
-            SqlDataAdapter da = new SqlDataAdapter("select sifre from kullanicilar where sifre ='" + textBox2.Text.Trim() + "' and id = '" + asciId + "'", db.dbConnect());
+            SqlDataAdapter da = new SqlDataAdapter("select sifre from kullanicilar where sifre ='" + DbProcess.md5Encrypt(textBox2.Text.Trim()) + "' and id = '" + asciId + "'", db.dbConnect());
             DataTable dt = new DataTable();
             da.Fill(dt);
 
@@ -34,7 +34,7 @@ namespace CafeProject
                 if (textBox3.Text == textBox4.Text)
                 {
                     db.dbConnect();
-                    SqlCommand cm = new SqlCommand("Update kullanicilar set sifre = '" + textBox4.Text.Trim() + "' where id = '" + asciId + "'", db.dbConnect());
+                    SqlCommand cm = new SqlCommand("Update kullanicilar set sifre = '" +DbProcess.md5Encrypt(textBox4.Text.Trim()) + "' where id = '" + asciId + "'", db.dbConnect());
                     cm.ExecuteNonQuery();
 
                     db.dbClose();
