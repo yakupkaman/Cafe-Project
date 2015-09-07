@@ -80,6 +80,30 @@ namespace CafeProject
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idd = dataGridView1.SelectedCells[0].RowIndex;
+                MessageBox.Show("" + idd);
+
+
+                SqlDataReader reader = db.getData("update sepet set durum = 2 where id ='" + idd + "'");
+
+                db.dbClose();
+                dataGetir();
+                MessageBox.Show("Ürünümüz Hazırlanıyor...!!!");
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lütfen Bir Kolon Seçiniz !!!");
+            }
+
+
+        }
+
 
 
     }
