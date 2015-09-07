@@ -20,7 +20,7 @@ namespace CafeProject
         DbProcess db = new DbProcess();
         private void dataGetir()
         {
-            SqlCommand cm = new SqlCommand("asd", db.dbConnect());
+            SqlCommand cm = new SqlCommand("urunGetir", db.dbConnect());
             cm.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cm);
             DataTable dt = new DataTable();
