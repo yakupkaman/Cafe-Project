@@ -1,0 +1,5 @@
+alter procedure urunGetir
+as
+begin
+select u.kategoriID,s.urunID,u.adi,s.masaID from urunler as u inner join sepet as s on u.id=s.urunID left join profil as p on p.kategoriID=u.kategoriID and s.durum='0'
+end
