@@ -1,0 +1,6 @@
+CREATE PROC SP_OdemeTur
+(@refKodu varchar(100))
+AS
+BEGIN
+Select odemeTur  from siparis, sepet where siparis.refKodu=sepet.refKodu and @refKodu=siparis.refKodu
+END

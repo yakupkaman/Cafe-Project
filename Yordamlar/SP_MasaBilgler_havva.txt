@@ -1,0 +1,9 @@
+CREATE PROC [dbo].[SP_MasaBilgler]
+(@id int)
+as
+
+begin
+Select m.id,m.adi, m.tarih, s.durum,s.refKodu from masalar m , sepet s where s.masaID=m.id and @id=m.profilID
+end 
+
+
