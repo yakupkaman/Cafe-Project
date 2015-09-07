@@ -84,7 +84,11 @@ namespace CafeProject
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (comboBox2.Text == "")
+            if (comboBox2.Text == "" && comboBox3.Text == "")
+            {
+                MessageBox.Show("Lütfen Çalışan ve Masa Adı Seçiniz !!! ");
+            }
+            else if (comboBox2.Text == "")
             {
                 MessageBox.Show("Lütfen Çalışan Seçiniz !!!");
             }

@@ -121,6 +121,8 @@ namespace CafeProject
 
         private void frmAyarlar_Load(object sender, EventArgs e)
         {
+
+            textBox4.Enabled = false;
             kullaniciGetir();
             logoGetir();
             sirketBilgileriGetir();
@@ -144,11 +146,13 @@ namespace CafeProject
             checkBox2.Enabled = false;
             checkBox3.Enabled = false;
             checkBox4.Enabled = false;
+            textBox4.Enabled = true;
 
             if (checkBox1.Checked == false) {
                 checkBox2.Enabled = true;
                 checkBox3.Enabled = true;
                 checkBox4.Enabled = true;
+                textBox4.Enabled = false;
             }
 
 
@@ -159,12 +163,14 @@ namespace CafeProject
             checkBox1.Enabled = false;
             checkBox3.Enabled = false;
             checkBox4.Enabled = false;
+            textBox4.Enabled = true;
 
             if (checkBox2.Checked == false)
             {
                 checkBox1.Enabled = true;
                 checkBox3.Enabled = true;
                 checkBox4.Enabled = true;
+                textBox4.Enabled = false;
             }
         }
 
@@ -173,11 +179,13 @@ namespace CafeProject
             checkBox2.Enabled = false;
             checkBox1.Enabled = false;
             checkBox4.Enabled = false;
+            textBox4.Enabled = true;
             if (checkBox3.Checked == false)
             {
                 checkBox2.Enabled = true;
                 checkBox1.Enabled = true;
                 checkBox4.Enabled = true;
+                textBox4.Enabled = false;
             }
         }
 
@@ -186,11 +194,13 @@ namespace CafeProject
             checkBox2.Enabled = false;
             checkBox3.Enabled = false;
             checkBox1.Enabled = false;
+            textBox4.Enabled = true;
             if (checkBox4.Checked == false)
             {
                 checkBox2.Enabled = true;
                 checkBox3.Enabled = true;
                 checkBox1.Enabled = true;
+                textBox4.Enabled = false;
             }
         }
 
