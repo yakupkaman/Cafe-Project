@@ -44,10 +44,26 @@ namespace CafeProject
             {
                 MessageBox.Show("Giriş Başarılı! Hoşgeldiniz " + dr["kulAdi"].ToString());
                 int id = Convert.ToInt32(dr["id"]);
-               
-                frmAdminPaneli f = new frmAdminPaneli(id);
-                f.Show();
-                this.Hide(); 
+                int seviye = Convert.ToInt32(dr["seviye"]);
+                if (seviye == 0)
+                {
+                    frmAdminPaneli f = new frmAdminPaneli(id);
+                    f.Show();
+                    this.Close(); 
+                }
+                else if (seviye == 1)
+                {
+                    frmAsci asci = new frmAsci(id);
+                    asci.Show();
+                    this.Close();
+                }
+                else if (seviye == 2)
+                {
+                    GarsonEkrani g = new GarsonEkrani(id);
+                    g.Show();
+                    this.Close();
+                }
+           
                 
             }
             else 

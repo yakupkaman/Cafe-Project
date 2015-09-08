@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -53,6 +54,7 @@
             this.button1.TabIndex = 45;
             this.button1.Text = "Güncelle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox7
             // 
@@ -168,11 +170,22 @@
             this.label2.TabIndex = 31;
             this.label2.Text = "Adı";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(364, 342);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 40);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "Geri";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmProfilGuncelleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 441);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
@@ -213,5 +226,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }

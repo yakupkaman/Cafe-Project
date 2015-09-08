@@ -16,7 +16,7 @@ namespace CafeProject
     {
         DbProcess db = new DbProcess("CafeProject");
         SqlDataReader dr = null;
-        public string id;
+        public int id;
 
 
 
@@ -27,7 +27,7 @@ namespace CafeProject
             while (reader.Read())
             {
                 comboBox2.Items.Add(reader["adi"].ToString());
-                id = (reader["id"].ToString());
+                id = (Convert.ToInt32( reader["id"]));
             }
             db.dbClose();
         }
@@ -46,21 +46,24 @@ namespace CafeProject
             SqlCommand com = new SqlCommand("masaAtama", db.dbConnect());
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.Add("@id", SqlDbType.Int).Value = id;
-            com.Parameters.Add("@masaNo", SqlDbType.VarChar, 50).Value = comboBox3.Text.ToString();
+            com.Parameters.Add("@masaNo", SqlDbType.VarChar, 500).Value = comboBox3.Text.ToString();
 
             db.dbConnect();
             dr = com.ExecuteReader();
-            if (dr.Read())
-            {
+       
                 MessageBox.Show("Masa Atama İşlemi Başarılı !!!");
-            }
+        
+            db.dbClose();
         }
         private void masaAtamaInsert()
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO masalar (profilID,adi) VALUES (@id,@ad,@acikla)", db.dbConnect());
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@ad", comboBox3.Text.ToString());
+            db.dbConnect();
             cmd.ExecuteNonQuery();
+            db.dbClose();
+            MessageBox.Show("Masa Atanmıştır !!!");
         }
 
 
@@ -102,8 +105,9 @@ namespace CafeProject
             {
 
                 db.dbConnect();
-                SqlDataReader reader = db.getData("select profilID from masalar where '" + id + "'");
-                if (dr.Read())
+              
+                SqlDataReader reader = db.getData("select profilID from masalar where id='" + id + "'");
+                if (reader.Read())
                 {
                     masaAtamaUpdate();
                 }

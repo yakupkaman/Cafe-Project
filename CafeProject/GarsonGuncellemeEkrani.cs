@@ -15,12 +15,11 @@ namespace CafeProject
     public partial class GarsonGuncellemeEkrani : Form
     {
 
-        DB db = new DB();
-        GarsonBilgileri info = new GarsonBilgileri();
-       // Deneme amaclı id ataması
+        DbProcess db = new DbProcess();
+        // Deneme amaclı id ataması
         int gelenId = 2;
         String gelenTc;
-        
+
         public GarsonGuncellemeEkrani()
         {
             InitializeComponent();
@@ -37,7 +36,7 @@ namespace CafeProject
             fncTcKontrol();
         }
 
-       
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -45,13 +44,13 @@ namespace CafeProject
             fncTcKontrol();
 
             gelenTc = txtTcNo.Text;
-            SqlCommand cmd = new SqlCommand("SPTcNoGuncelle", db.baglan());
-
+            SqlCommand cmd = new SqlCommand("SPTcNoGuncelle", db.dbConnect());
+            db.dbConnect();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@tcno", SqlDbType.VarChar, 11).Value = txtTcNo.Text;
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = gelenId;//!Kullanıcının Gelen ID si eklenecek
             cmd.ExecuteNonQuery();
-            db.DbKapat();
+            db.dbClose();
 
             gelenTc = txtTcNo.Text;
             string mail = txtMail.Text;
@@ -59,7 +58,7 @@ namespace CafeProject
             {
                 label8.Text = "yanlış tc formatı Lütfen kontrol ediniz";
             }
-          
+
             if (!fncMailFormat(mail))
             {
                 label9.Text = "Mail Adresinizi kontrol ediniz";
@@ -72,7 +71,7 @@ namespace CafeProject
             }
 
 
-            SqlCommand cm = new SqlCommand("SP_GarsonGuncelleme", db.baglan());
+            SqlCommand cm = new SqlCommand("SP_GarsonGuncelleme", db.dbConnect());
 
             cm.CommandType = CommandType.StoredProcedure;
 
@@ -83,9 +82,9 @@ namespace CafeProject
             cm.Parameters.Add("@adres", SqlDbType.VarChar, 500).Value = txtAdres.Text;
             cm.Parameters.Add("@id", SqlDbType.Int).Value = gelenId;//!Kullanıcının Gelen ID si eklenecek
 
-
+            db.dbConnect();
             cm.ExecuteNonQuery();
-            db.DbKapat();
+            db.dbClose();
 
 
         }
@@ -132,7 +131,9 @@ namespace CafeProject
         public void fncTcKontrol()
         {
 
-            SqlDataReader dr = db.DataGetir("SELECT tcno, adi FROM profil ,kullanicilar where kullanicilar.profilID=profil.id ");
+            db.dbConnect();
+            SqlDataReader dr = db.getData("SELECT tcno, adi FROM profil ,kullanicilar where kullanicilar.profilID=profil.id ");
+
             dr.Read();
 
             if (dr["tcno"].ToString() == "")
@@ -147,6 +148,7 @@ namespace CafeProject
                 label7.Text = "yönetici zaten sizi eklemiş. Değiştirme Yapamazsınız.";
 
             }
+            db.dbClose();
         }
 
 
@@ -161,34 +163,35 @@ namespace CafeProject
         }
 
 
-        public bool fncSifreKontrol() 
+        public bool fncSifreKontrol()
         {
             if (txtSifre.Text.Trim() == txtSifreTekrar.Text.Trim())
                 return true;
             else
-                return false;  
+                return false;
         }
 
 
         public void fncDataGetir()
         {
+            db.dbConnect();
+            SqlCommand com = new SqlCommand("SELECT kulAdi,sifre, tcno,mail,adres,telefon, adi FROM kullanicilar , profil  where kullanicilar.profilID=profil.id", db.dbConnect());
+            SqlDataReader dr1 = com.ExecuteReader();
 
+            dr1.Read();
 
-            SqlDataReader dr = db.DataGetir("SELECT kulAdi,sifre, tcno,mail,adres,telefon, adi FROM kullanicilar , profil  where kullanicilar.profilID=profil.id");
-            dr.Read();
+            txtTcNo.Text = dr1["tcno"].ToString();
+            txt_kulAdı.Text = dr1["kulAdi"].ToString();
+            txtSifre.Text = dr1["sifre"].ToString();
+            txtAdres.Text = dr1["adres"].ToString();
+            txtMail.Text = dr1["mail"].ToString();
+            txtTel.Text = dr1["telefon"].ToString();
 
-            txtTcNo.Text = dr["tcno"].ToString();
-            txt_kulAdı.Text = dr["kulAdi"].ToString();
-            txtSifre.Text = dr["sifre"].ToString();
-            txtAdres.Text = dr["adres"].ToString();
-            txtMail.Text = dr["mail"].ToString();
-            txtTel.Text = dr["telefon"].ToString();
-
-            db.DbKapat();
+            db.dbClose();
 
         }
 
-       
+
     }
 
 

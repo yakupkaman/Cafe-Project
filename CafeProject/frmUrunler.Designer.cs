@@ -65,6 +65,7 @@
             this.sil.TabIndex = 2;
             this.sil.Text = "Sil";
             this.sil.UseVisualStyleBackColor = true;
+            this.sil.Click += new System.EventHandler(this.sil_Click);
             // 
             // urun3
             // 
@@ -90,6 +91,7 @@
             this.ktcomb1.Name = "ktcomb1";
             this.ktcomb1.Size = new System.Drawing.Size(121, 21);
             this.ktcomb1.TabIndex = 16;
+            this.ktcomb1.SelectedIndexChanged += new System.EventHandler(this.ktcomb1_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -118,6 +120,7 @@
             this.duzenle.TabIndex = 1;
             this.duzenle.Text = "Düzenle";
             this.duzenle.UseVisualStyleBackColor = true;
+            this.duzenle.Click += new System.EventHandler(this.duzenle_Click);
             // 
             // groupBox1
             // 
@@ -140,12 +143,13 @@
             // ekle
             // 
             this.ekle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ekle.Location = new System.Drawing.Point(300, 25);
+            this.ekle.Location = new System.Drawing.Point(313, 33);
             this.ekle.Name = "ekle";
             this.ekle.Size = new System.Drawing.Size(96, 35);
             this.ekle.TabIndex = 0;
             this.ekle.Text = "Ekle";
             this.ekle.UseVisualStyleBackColor = true;
+            this.ekle.Click += new System.EventHandler(this.ekle_Click_1);
             // 
             // urunlerListB
             // 
@@ -154,6 +158,7 @@
             this.urunlerListB.Name = "urunlerListB";
             this.urunlerListB.Size = new System.Drawing.Size(136, 420);
             this.urunlerListB.TabIndex = 18;
+            this.urunlerListB.SelectedIndexChanged += new System.EventHandler(this.urunlerListB_SelectedIndexChanged);
             // 
             // frmUrunler
             // 

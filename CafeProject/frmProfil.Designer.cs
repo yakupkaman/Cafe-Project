@@ -58,6 +58,7 @@
             this.button3.TabIndex = 39;
             this.button3.Text = "Güncelle";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -67,9 +68,11 @@
             this.button2.TabIndex = 38;
             this.button2.Text = "Sil";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(42, 364);
             this.comboBox1.Name = "comboBox1";
@@ -84,6 +87,7 @@
             this.button1.TabIndex = 36;
             this.button1.Text = "Ekle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox7
             // 

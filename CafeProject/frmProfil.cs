@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 
 namespace CafeProject
@@ -32,9 +33,15 @@ namespace CafeProject
 
                 MessageBox.Show("Lütfen tüm bilgileri doldurunuz.");
             }
+            else if (!Regex.IsMatch(adi, @"^[ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZQWXabcçdefgğhıijklmnoöprsştuüvyzqwx]+$")||!Regex.IsMatch(soyadi, @"^[ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZQWXabcçdefgğhıijklmnoöprsştuüvyzqwx]+$"))
+            {
+               MessageBox.Show("Lütfen adı soyadı için sadece harf giriniz!");
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox1.Focus();
+            }
             else
             {
-
                 SqlCommand com = new SqlCommand("profilInsert", db.dbConnect());
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.Add("@adi", SqlDbType.VarChar, 255).Value = adi;
@@ -50,15 +57,19 @@ namespace CafeProject
                 comboBox1.Items.Add(adi);
                 MessageBox.Show("Profil Kaydı Yapıldı");
             }
-
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             profilInsert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox6.Text);
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            
         }
 
 
@@ -80,19 +91,23 @@ namespace CafeProject
         int id;
         private void button3_Click(object sender, EventArgs e)
         {
-
-            if (comboBox1.Text == "")
+            try
             {
-                MessageBox.Show("Profil seçmeden güncelleme yapılamaz!");
+                if (comboBox1.Text == "")
+                {
+                    MessageBox.Show("Profil seçmeden güncelleme yapılamaz!");
+                }
+                else
+                {
+                    id = Convert.ToInt32(li[comboBox1.SelectedIndex]);
+                    frmProfilGuncelleme profilGuncelleme = new frmProfilGuncelleme(id);
+                    profilGuncelleme.Show();
+                    this.Hide();
+                }
             }
-            else
-            {
-                id = Convert.ToInt32(li[comboBox1.SelectedIndex]);
-                frmProfilGuncelleme profilGuncelleme = new frmProfilGuncelleme(id);
-                profilGuncelleme.Show();
-                this.Hide();
+            catch (Exception a) { 
+            
             }
-
         }
 
         private void frmProfil_Load(object sender, EventArgs e)

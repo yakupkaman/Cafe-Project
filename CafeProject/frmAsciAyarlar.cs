@@ -53,5 +53,13 @@ namespace CafeProject
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmAsci ns = new frmAsci();
+            ns.Show();
+            this.Hide();
+
+        }
+
     }
 }

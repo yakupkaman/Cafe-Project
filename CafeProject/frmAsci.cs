@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-using System.Data;
 
 using System.Data.SqlClient;
 
@@ -62,7 +61,7 @@ namespace CafeProject
             try
             {
                 int idd = dataGridView1.SelectedCells[0].RowIndex;
-                MessageBox.Show("" + idd);
+                //MessageBox.Show("" + idd);
 
 
                 SqlDataReader reader = db.getData("update sepet set durum = 3 where id ='" + idd + "'");
@@ -75,7 +74,7 @@ namespace CafeProject
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lütfen Bir Kolon Seçiniz !!!");
+                MessageBox.Show("Lütfen Bir Kolon Seçiniz !!! " + ex);
             }
 
         }
@@ -85,20 +84,20 @@ namespace CafeProject
             try
             {
                 int idd = dataGridView1.SelectedCells[0].RowIndex;
-                MessageBox.Show("" + idd);
+               // MessageBox.Show("" + idd);
 
 
                 SqlDataReader reader = db.getData("update sepet set durum = 2 where id ='" + idd + "'");
 
                 db.dbClose();
                 dataGetir();
-                MessageBox.Show("Ürünümüz Hazırlanıyor...!!!");
+               // MessageBox.Show("Ürünümüz Hazırlanıyor...!!!");
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lütfen Bir Kolon Seçiniz !!!");
+                MessageBox.Show("Lütfen Bir Kolon Seçiniz !!! " + ex);
             }
 
 

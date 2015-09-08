@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GarsonEkrani));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -42,7 +43,7 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::CafeProject.Properties.Resources.images;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(572, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(47, 34);

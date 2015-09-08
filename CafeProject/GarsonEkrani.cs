@@ -14,27 +14,35 @@ namespace CafeProject
     public partial class GarsonEkrani : Form
     {
         GarsonGuncellemeEkrani gr = new GarsonGuncellemeEkrani();
-        DB db = new DB();
+        DbProcess db = new DbProcess();
       
-        int gelenID=10;//Garson id 
+        int gelenID;//Garson id 
         public GarsonEkrani()
         {
             InitializeComponent();
+        }
+        public GarsonEkrani(int id)
+        {
+            InitializeComponent();
+            gelenID = id;
         }
 
         
         private void button1_Click(object sender, EventArgs e)
         {
+            db.dbClose();
             gr.Show(); //Button'a týkladýðýmýz zaman garson güncelleme ekranýna geçmesini saðlýyoruz
 
             this.Hide();
+
         }
 
         public void DataGetir()
         {
-            SqlCommand cm = new SqlCommand("SP_MasaBilgler", db.baglan());
+            SqlCommand cm = new SqlCommand("SP_MasaBilgler", db.dbConnect());
             cm.CommandType = CommandType.StoredProcedure;
             cm.Parameters.Add("@id", SqlDbType.Int).Value = gelenID;
+            db.dbConnect();
             cm.ExecuteNonQuery();
 
 
@@ -42,7 +50,7 @@ namespace CafeProject
             DataTable dt = new DataTable();
             dt.Load(rd);
             dataGridView1.DataSource = dt;
-            db.DbKapat();
+            db.dbClose();
         }
         private void GarsonEkrani_Load(object sender, EventArgs e)
         {
@@ -102,7 +110,7 @@ namespace CafeProject
             String refKodu = Convert.ToString(dataGridView1.CurrentRow.Cells["refKodu"].Value);
             if (refKodu!="")
             {
-                SqlCommand cmd = new SqlCommand("SP_SiparisBilgileri", db.baglan());
+                SqlCommand cmd = new SqlCommand("SP_SiparisBilgileri", db.dbConnect());
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@refKodu", SqlDbType.Int).Value = refKodu;
                 cmd.ExecuteNonQuery();
@@ -113,8 +121,8 @@ namespace CafeProject
                     label6.Visible = true;
                     label6.Text = rdd["toplamTutar"].ToString();
                 }
-                db.DbKapat();
-                SqlCommand cm = new SqlCommand("SP_OdemeTur", db.baglan());
+                db.dbClose();
+                SqlCommand cm = new SqlCommand("SP_OdemeTur", db.dbConnect());
                 cm.CommandType = CommandType.StoredProcedure;
                 cm.Parameters.Add("@refKodu", SqlDbType.Int).Value = refKodu;
                 cm.ExecuteNonQuery();
@@ -135,7 +143,7 @@ namespace CafeProject
                 label2.Text = "NAKÝT";
                           }
 
-            db.DbKapat();
+            db.dbClose();
             }
                 
                 

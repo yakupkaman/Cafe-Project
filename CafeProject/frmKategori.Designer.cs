@@ -41,6 +41,7 @@
             this.btn_ekle = new System.Windows.Forms.Button();
             this.lbl_kat_ekle = new System.Windows.Forms.Label();
             this.cmb_sil = new System.Windows.Forms.ComboBox();
+            this.btn_geri = new System.Windows.Forms.Button();
             this.grp_duzenle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@
             this.grp_duzenle.Controls.Add(this.btn_Duzenle);
             this.grp_duzenle.Controls.Add(this.cmb_duzenle);
             this.grp_duzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.grp_duzenle.Location = new System.Drawing.Point(17, 168);
+            this.grp_duzenle.Location = new System.Drawing.Point(17, 147);
             this.grp_duzenle.Name = "grp_duzenle";
             this.grp_duzenle.Size = new System.Drawing.Size(372, 108);
             this.grp_duzenle.TabIndex = 15;
@@ -111,6 +112,7 @@
             this.btn_Duzenle.TabIndex = 10;
             this.btn_Duzenle.Text = "Düzenle";
             this.btn_Duzenle.UseVisualStyleBackColor = true;
+            this.btn_Duzenle.Click += new System.EventHandler(this.btn_Duzenle_Click);
             // 
             // cmb_duzenle
             // 
@@ -131,6 +133,7 @@
             this.btn_sil.TabIndex = 14;
             this.btn_sil.Text = "Sil";
             this.btn_sil.UseVisualStyleBackColor = true;
+            this.btn_sil.Click += new System.EventHandler(this.btn_sil_Click);
             // 
             // listBox_kat
             // 
@@ -150,6 +153,7 @@
             this.btn_ekle.TabIndex = 11;
             this.btn_ekle.Text = "Ekle";
             this.btn_ekle.UseVisualStyleBackColor = true;
+            this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
             // 
             // lbl_kat_ekle
             // 
@@ -171,11 +175,23 @@
             this.cmb_sil.TabIndex = 13;
             this.cmb_sil.Text = "Seçiniz";
             // 
+            // btn_geri
+            // 
+            this.btn_geri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_geri.Location = new System.Drawing.Point(160, 274);
+            this.btn_geri.Name = "btn_geri";
+            this.btn_geri.Size = new System.Drawing.Size(75, 23);
+            this.btn_geri.TabIndex = 17;
+            this.btn_geri.Text = "GERİ";
+            this.btn_geri.UseVisualStyleBackColor = true;
+            this.btn_geri.Click += new System.EventHandler(this.btn_geri_Click);
+            // 
             // frmKategori
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 319);
+            this.Controls.Add(this.btn_geri);
             this.Controls.Add(this.lbl_kat_sil);
             this.Controls.Add(this.txt_ekle);
             this.Controls.Add(this.grp_duzenle);
@@ -186,7 +202,9 @@
             this.Controls.Add(this.cmb_sil);
             this.Name = "frmKategori";
             this.Text = "frmKategori";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmKategori_FormClosed);
             this.Load += new System.EventHandler(this.frmKategori_Load);
+            this.Click += new System.EventHandler(this.frmKategori_Load);
             this.grp_duzenle.ResumeLayout(false);
             this.grp_duzenle.PerformLayout();
             this.ResumeLayout(false);
@@ -209,5 +227,6 @@
         private System.Windows.Forms.Button btn_ekle;
         private System.Windows.Forms.Label lbl_kat_ekle;
         private System.Windows.Forms.ComboBox cmb_sil;
+        private System.Windows.Forms.Button btn_geri;
     }
 }

@@ -208,6 +208,7 @@ namespace CafeProject
         {
             checkboxUpdate();
             sirketBilgileriGetir();
+            textBox4.Text = "";
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -219,6 +220,9 @@ namespace CafeProject
             else
             {
                 MessageBox.Show("Girmiş Olduğunuz Şifreler Aynı Değildir !!!");
+                textBox1.Focus();
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
         }
 

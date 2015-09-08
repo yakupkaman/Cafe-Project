@@ -39,6 +39,7 @@ namespace CafeProject
             }
             else
             {
+                             
                 kategoriEkle(txt_ekle.Text);
                 katDoldur();
                 cmbDoldur();
@@ -162,6 +163,21 @@ namespace CafeProject
                 cm.ExecuteNonQuery();
                 db.dbClose();
             }
+        }
+
+        private void btn_geri_Click(object sender, EventArgs e)
+        {
+            frmAdminPaneli adminPaneli = new frmAdminPaneli();
+            adminPaneli.Show();
+            this.Hide();
+           
+        }
+
+        private void frmKategori_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmAdminPaneli fm = new frmAdminPaneli();
+            fm.Show();
+            this.Hide();
         }
     }
 }
