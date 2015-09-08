@@ -15,6 +15,7 @@ namespace CafeProject
     {
         DbProcess db = new DbProcess("CafeProject");
         SqlDataReader dr = null;
+        String filePath;
         public void kullaniciGetir()
         {
             db.dbConnect();
@@ -30,7 +31,7 @@ namespace CafeProject
         {
             SqlCommand com = new SqlCommand("sifreDegistirme", db.dbConnect());
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.Add("@sifre", SqlDbType.Int).Value = textBox1.Text.ToString();
+            com.Parameters.Add("@sifre", SqlDbType.Int).Value = DbProcess.md5Encrypt(textBox1.Text.ToString());
             com.Parameters.Add("@kulAdi", SqlDbType.VarChar, 50).Value = comboBox1.Text.ToString();
 
             if (comboBox1.Text == "")
@@ -55,15 +56,18 @@ namespace CafeProject
 
                 pictureBox1.ImageLocation = reader["logo"].ToString();
 
+
             }
             db.dbClose();
         }
         private void logoDegistir()
         {
-            db.dbConnect();
-            SqlDataReader reader = db.getData("update sirket set logo='" + textBox3.Text.ToString() + "'");
+          
+                db.dbConnect();
+                SqlDataReader reader = db.getData("update sirket set logo='" + textBox3.Text.ToString() + "'");
+                db.dbClose();
+            
 
-            db.dbClose();
         }
         private void sirketBilgileriGetir()
         {
@@ -80,11 +84,12 @@ namespace CafeProject
             }
             db.dbClose();
         }
-        private void checkboxUpdate() {
+        private void checkboxUpdate()
+        {
             if (checkBox1.Checked == true)
             {
                 db.dbConnect();
-                SqlDataReader reader = db.getData("update sirket set sirketAdi='" + textBox4.Text.ToString() + "' where sirketAdi='"+label5.Text.ToString()+"'");
+                SqlDataReader reader = db.getData("update sirket set sirketAdi='" + textBox4.Text.ToString() + "' where sirketAdi='" + label5.Text.ToString() + "'");
                 db.dbClose();
             }
 
@@ -114,6 +119,28 @@ namespace CafeProject
                 MessageBox.Show("Lütfen Değiştirmek İstediğiniz Alanı İşaretleyin");
             }
         }
+        private void gozat()
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Dosya Konumu Seç";
+                dlg.Filter = "bmp files (*.bmp)|*.bmp";
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBox PictureBox1 = new PictureBox();
+                
+                    pictureBox1.Image = new Bitmap(dlg.FileName);
+          
+                    filePath = dlg.FileName;
+
+                    db.dbConnect();
+                    SqlDataReader reader = db.getData("update sirket set logo='" + filePath + "'");
+                    db.dbClose();
+                  
+                }
+            }
+        }
         public frmAyarlar()
         {
             InitializeComponent();
@@ -131,14 +158,9 @@ namespace CafeProject
             // böylece combobox içine veri yazılamayacak.
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -148,7 +170,8 @@ namespace CafeProject
             checkBox4.Enabled = false;
             textBox4.Enabled = true;
 
-            if (checkBox1.Checked == false) {
+            if (checkBox1.Checked == false)
+            {
                 checkBox2.Enabled = true;
                 checkBox3.Enabled = true;
                 checkBox4.Enabled = true;
@@ -208,7 +231,6 @@ namespace CafeProject
         {
             checkboxUpdate();
             sirketBilgileriGetir();
-            textBox4.Text = "";
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -220,14 +242,12 @@ namespace CafeProject
             else
             {
                 MessageBox.Show("Girmiş Olduğunuz Şifreler Aynı Değildir !!!");
-                textBox1.Focus();
-                textBox1.Text = "";
-                textBox2.Text = "";
             }
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            
             if (textBox3.Text == "")
             {
                 MessageBox.Show("Lütfen Bir Url Giriniz !!!");
@@ -239,5 +259,17 @@ namespace CafeProject
                 logoGetir();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            gozat();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(filePath);
+        }
     }
 }
+
+

@@ -94,3 +94,7 @@ C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\ob
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.exe
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.pdb
 C:\Users\wissen\Documents\Visual Studio 2012\Projects\CafeProject\CafeProject\obj\Debug\CafeProject.csprojResolveAssemblyReference.cache
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmKategori.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.frmUrunler.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.GarsonEkrani.resources
+C:\Users\wissen\Documents\GitHub\Cafe-Project\CafeProject\obj\Debug\CafeProject.GarsonGuncellemeEkrani.resources
