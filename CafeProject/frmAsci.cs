@@ -46,7 +46,15 @@ namespace CafeProject
         private void calisAsci()
         {
 
-            dataGetir();
+            for (int i = 0; true; i++)
+            {
+                this.Invoke(new MethodInvoker(delegate()
+                {
+                    dataGetir();
+                }));
+                Thread.Sleep(10000);
+            } 
+
         }
 
         private void button4_Click(object sender, EventArgs e)
