@@ -152,5 +152,12 @@ namespace CafeProject
             }
             idTut();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+             frmAdminPaneli fr = new  frmAdminPaneli();
+             fr.Show();
+             this.Hide();
+        }
     }
 }
