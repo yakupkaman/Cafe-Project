@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 
 namespace CafeProject
@@ -52,6 +53,35 @@ namespace CafeProject
         }
 
         public void profilUpdate(string adi, string soyadi, string telefon, string mail, string adres, string tcno, string notlar)
+        {  if (!Regex.IsMatch(adi, @"^[ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZQWXabcçdefgğhıijklmnoöprsştuüvyzqwx]+$")||!Regex.IsMatch(soyadi, @"^[ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZQWXabcçdefgğhıijklmnoöprsştuüvyzqwx]+$"))
+            {
+               MessageBox.Show("Lütfen adı soyadı için sadece harf giriniz!");
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox1.Focus();
+            }
+            else if (!Regex.IsMatch(telefon, @"^[0123456789+]+$"))
+            {
+                MessageBox.Show("Telefon numarası için yalnızca sayı giriniz!");
+                textBox3.Text = "";
+                textBox3.Focus();
+            }
+                
+            else if (!IsValidEmail(textBox4.Text))
+            {
+            
+                    MessageBox.Show("Hatalı formatta mail adresi girdiniz!");
+                    textBox4.Text = "";
+                    textBox4.Focus();
+            }
+        else if (textBox6.TextLength < 11 || textBox6.TextLength > 11)
+        {
+            MessageBox.Show("Tc kimlik numarası hatalı!");
+            textBox6.Text = "";
+            textBox6.Focus();
+
+        }
+        else
         {
             SqlCommand com1 = new SqlCommand("profilUpdate", db.dbConnect());
             com1.CommandType = CommandType.StoredProcedure;
@@ -68,13 +98,12 @@ namespace CafeProject
             db.dbClose();
             MessageBox.Show("Profil Bilgileri Güncellendi");
         }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            profilUpdate(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox6.Text);
-            frmProfil fp = new frmProfil();
-            fp.Show();
-            this.Hide();
+            profilUpdate(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -84,6 +113,9 @@ namespace CafeProject
             this.Hide();
 
         }
-
+        private bool IsValidEmail(string mailDenetim)
+        {
+            return Regex.IsMatch(mailDenetim, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        }
     }
 }

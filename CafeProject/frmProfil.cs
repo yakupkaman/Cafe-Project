@@ -21,6 +21,7 @@ namespace CafeProject
         public frmProfil()
         {
             InitializeComponent();
+
         }
 
         public void profilInsert(string adi, string soyadi, string telefon, string mail, string adres, string tcno, string notlar)
@@ -40,6 +41,27 @@ namespace CafeProject
                 textBox2.Text = "";
                 textBox1.Focus();
             }
+            else if (!Regex.IsMatch(telefon, @"^[0123456789+]+$"))
+            {
+                MessageBox.Show("Telefon numarası için yalnızca sayı giriniz!");
+                textBox3.Text = "";
+                textBox3.Focus();
+            }
+                
+            else if (!IsValidEmail(textBox4.Text))
+            {
+            
+                    MessageBox.Show("Hatalı formatta mail adresi girdiniz!");
+                    textBox4.Text = "";
+                    textBox4.Focus();
+            }
+            else if (textBox6.TextLength < 11 || textBox6.TextLength > 11)
+            {
+                MessageBox.Show("Tc kimlik numarası hatalı!");
+                textBox6.Text = "";
+                textBox6.Focus();
+                
+            }
             else
             {
                 SqlCommand com = new SqlCommand("profilInsert", db.dbConnect());
@@ -54,22 +76,22 @@ namespace CafeProject
                 db.dbConnect();
                 com.ExecuteNonQuery();
                 db.dbClose();
-                comboBox1.Items.Add(adi);
+                li.Clear();
+                idTut();
+                
                 MessageBox.Show("Profil Kaydı Yapıldı");
             }
+            db.dbConnect();
+            int i =Convert.ToInt32(li[li.Count-1]);
+            SqlCommand com1 = new SqlCommand("insert into kullanicilar(profilID) values (@id)", db.dbConnect());
+            com1.Parameters.AddWithValue("@id",i);
+            com1.ExecuteNonQuery();
+            db.dbClose();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            profilInsert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox6.Text);
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-            textBox7.Text = "";
-            
+            profilInsert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
         }
 
 
@@ -91,8 +113,7 @@ namespace CafeProject
         int id;
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 if (comboBox1.Text == "")
                 {
                     MessageBox.Show("Profil seçmeden güncelleme yapılamaz!");
@@ -104,14 +125,12 @@ namespace CafeProject
                     profilGuncelleme.Show();
                     this.Hide();
                 }
-            }
-            catch (Exception a) { 
             
-            }
         }
 
         private void frmProfil_Load(object sender, EventArgs e)
         {
+            comboBox1.Items.Clear();
             idTut();
         }
 
@@ -159,5 +178,12 @@ namespace CafeProject
              fr.Show();
              this.Hide();
         }
+
+        private bool IsValidEmail(string mailDenetim)
+        {
+            // Return true if strIn is in valid e-mail format.
+            return Regex.IsMatch(mailDenetim, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        }
+
     }
 }
